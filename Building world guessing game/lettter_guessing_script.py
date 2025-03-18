@@ -6,7 +6,7 @@ import random
 word_list = words.words()
 
 # Create a word bank by filtering for words that have exactly 5 letters
-word_bank = [word for word in word_list if len(word) == 5]
+word_bank = [word.lower() for word in word_list if len(word) == 5]
 
 # Randomly select a word from the word bank to be guessed
 word = random.choice(word_bank)
@@ -34,7 +34,6 @@ while attempts > 0:
             if word[i] == guess:
                 print('\nGreat guess!')  # Inform the user of a successful guess
                 guessed_word = guessed_word[:i] + guess + guessed_word[i + 1:]  # Update the guessed word
-                print('Current word:', guessed_word)  # Show the updated guessed word
 
         attempts -= 1  # Decrement attempts only once for correct guess
         print('You have', attempts, 'attempts left.')  # Show remaining attempts
